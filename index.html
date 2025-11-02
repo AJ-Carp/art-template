@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firstname Lastname — Art Portfolio</title>
+  <meta name="description" content="A curated art portfolio inspired by gallery spaces and modern exhibition design." />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --ink: #151515;
+      --muted: #585858;
+      --accent: #c44d3e;
+      --border: #e0dcd8;
+      --max: clamp(320px, 88vw, 1200px);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    .wrap { width: var(--max); margin-inline: auto; padding-inline: 24px; }
+    .hdr-inner {
+      display: flex; align-items: center; justify-content: space-between; padding: 20px 0;
+    }
+    .logo {
+      font-family: 'Bodoni Moda', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.05em;
+    }
+    nav a {
+      text-decoration: none; color: var(--muted); margin-left: 20px; font-weight: 500; position: relative;
+    }
+    nav a::after {
+      content: ''; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--accent); transition: width .3s ease;
+    }
+    nav a:hover::after, nav a[aria-current="page"]::after { width: 100%; }
+
+    section { padding: 100px 0; }
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px;
+    }
+    .hero h1 {
+      font-family: 'Bodoni Moda', serif; font-size: clamp(40px, 7vw, 78px); line-height: 1.05; margin: 0 0 10px;
+    }
+    .hero p { color: var(--muted); max-width: 500px; font-size: 18px; }
+    .portrait img {
+      width: 100%; border-radius: 6px; box-shadow: 0 40px 70px rgba(0,0,0,0.15); filter: grayscale(10%) contrast(1.05);
+    }
+    .btn {
+      display: inline-block; margin-top: 24px; padding: 12px 20px; border: 1px solid var(--ink);
+      color: var(--ink); text-decoration: none; font-weight: 600; transition: all .3s ease;
+    }
+    .btn:hover { background: var(--ink); color: var(--bg); }
+
+    h2 { font-family: 'Bodoni Moda', serif; font-size: clamp(28px, 4vw, 48px); margin-bottom: 40px; text-align: center; }
+    .grid { display: grid; gap: 40px; }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.cols-2,.cols-3{grid-template-columns:1fr}}
+
+    .artwork {
+      position: relative; overflow: hidden; border-radius: 8px; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .artwork img {
+      width: 100%; height: auto; display: block; transition: transform .6s ease;
+    }
+    .artwork:hover img { transform: scale(1.05); }
+    .art-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.6)); color: #fff;
+      font-size: 16px; font-weight: 500; letter-spacing: 0.02em;
+    }
+
+    .statement {
+      max-width: 700px; margin: 0 auto; text-align: center; color: var(--muted);
+      font-style: italic; font-size: 18px; line-height: 1.7;
+    }
+
+    footer { padding: 60px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hdr-inner">
+      <div class="logo">Firstname Lastname</div>
+      <nav>
+        <a href="#about" aria-current="page">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#statement">Statement</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>The curated lens of human emotion and form.</h1>
+        <p>Through brush, camera, and composition, I explore the dialogue between chaos and stillness. Each work aims to reveal what the city hides in its light and shadow.</p>
+        <a class="btn" href="#gallery">View Gallery</a>
+      </div>
+      <div class="portrait">
+        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?q=80&w=1000&auto=format&fit=crop" alt="Artist portrait in studio">
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="grid cols-3">
+        <div class="artwork">
+          <img src="https://images.unsplash.com/photo-1508264165352-258859e62245?q=80&w=900&auto=format&fit=crop" alt="Oil painting">
+          <div class="art-caption">Oil on Canvas — "Memory of Motion"</div>
+        </div>
+        <div class="artwork">
+          <img src="https://images.unsplash.com/photo-1513351791471-1f7bfc585cd1?q=80&w=900&auto=format&fit=crop" alt="Black and white portrait">
+          <div class="art-caption">Photography — "Resonance"</div>
+        </div>
+        <div class="artwork">
+          <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=900&auto=format&fit=crop" alt="Abstract installation">
+          <div class="art-caption">Mixed Media — "Suspension"</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="statement">
+      <h2>Artist Statement</h2>
+      <p class="statement">My work is a meditation on presence and absence. I am drawn to impermanent light—the glow of dusk against steel, the grain of forgotten walls, the pause between words. Through texture and color, I search for intimacy within vastness, silence within noise.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="text-align:center">Email: <a href="mailto:first.last@school.edu">first.last@school.edu</a></p>
+      <p style="text-align:center">Instagram: <a href="#">@yourhandle</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Firstname Lastname — Fine Art Portfolio</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
